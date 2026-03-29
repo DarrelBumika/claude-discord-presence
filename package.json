@@ -1,0 +1,29 @@
+{
+  "name": "claude-discord-presence",
+  "version": "1.0.0",
+  "description": "Claude Code plugin for Discord Rich Presence integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": ["claude-code", "discord", "rich-presence", "plugin"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "claudePlugin": {
+    "name": "Discord Rich Presence",
+    "description": "Show Claude Code activity in Discord",
+    "version": "1.0.0",
+    "main": "index.js",
+    "permissions": ["config", "commands"]
+  }
+}
