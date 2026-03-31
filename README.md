@@ -30,6 +30,12 @@ Shows "Using Claude Code" in your Discord activity.
 ```
 Removes the activity from your Discord profile.
 
+### Check Current Status
+```
+/discord-status status
+```
+Shows whether Discord Rich Presence is currently enabled or disabled.
+
 ## Requirements
 
 - Discord desktop application must be running

@@ -33,13 +33,17 @@
 4. Start Discord and try again
 5. **Expected**: Command succeeds
 
-### Test 5: Invalid Commands
+### Test 5: Status Command
+1. Run `/discord-status status`
+2. **Expected**: Current enabled/disabled state is displayed
+
+### Test 6: Invalid Commands
 1. Run `/discord-status`
-2. **Expected**: Usage help displayed
+2. **Expected**: Usage help displayed with `on`, `off`, and `status`
 3. Run `/discord-status invalid`
 4. **Expected**: Usage help displayed
 
-### Test 6: Rapid Toggle
+### Test 7: Rapid Toggle
 1. Run `/discord-status on`
 2. Immediately run `/discord-status off`
 3. Immediately run `/discord-status on`
