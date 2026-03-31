@@ -7,6 +7,7 @@ jest.mock('discord-rpc', () => ({
     on: jest.fn(),
     login: jest.fn(),
     setActivity: jest.fn(),
+    clearActivity: jest.fn(),
     destroy: jest.fn()
   }))
 }));
@@ -65,6 +66,26 @@ describe('PresenceManager', () => {
 
     await expect(presenceManager.connect()).rejects.toThrow('Discord not running');
     expect(presenceManager.isConnected()).toBe(false);
+  });
+
+  test('cleans up client on failed connection', async () => {
+    mockClient.login.mockRejectedValue(new Error('Discord not running'));
+
+    await expect(presenceManager.connect()).rejects.toThrow('Discord not running');
+
+    expect(presenceManager.client).toBeNull();
+    expect(presenceManager.isConnected()).toBe(false);
+  });
+
+  test('clears activity before disconnecting', async () => {
+    mockClient.login.mockResolvedValue();
+    mockClient.clearActivity.mockResolvedValue();
+
+    await presenceManager.connect();
+    await presenceManager.disconnect();
+
+    expect(mockClient.clearActivity).toHaveBeenCalledTimes(1);
+    expect(mockClient.destroy).toHaveBeenCalledTimes(1);
   });
 
   test('prevents duplicate connections', async () => {
