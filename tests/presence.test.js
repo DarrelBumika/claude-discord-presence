@@ -41,9 +41,12 @@ describe('PresenceManager', () => {
     await presenceManager.setActivity();
 
     expect(mockClient.setActivity).toHaveBeenCalledWith({
-      details: 'Using Claude Code',
-      largeImageKey: 'claude-logo',
-      largeImageText: 'Claude Code'
+      state: 'Using Claude Code',
+      details: 'Writing code',
+      largeImageKey: 'claude_code_logo',
+      largeImageText: 'Claude Code',
+      instance: true,
+      startTimestamp: expect.any(Number)
     });
   });
 
