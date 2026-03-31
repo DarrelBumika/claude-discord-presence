@@ -1,0 +1,17 @@
+{
+  "name": "discord-rich-presence",
+  "description": "Personal marketplace for Discord Rich Presence plugin",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Claude Code Community",
+    "email": "community@claude.com"
+  },
+  "plugins": [
+    {
+      "name": "discord-presence",
+      "source": "./",
+      "description": "Show Claude Code activity in Discord with manual control via /discord-status commands",
+      "version": "1.0.0"
+    }
+  ]
+}
